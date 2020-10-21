@@ -9,6 +9,7 @@ def __parse_sql(blob_string: str) -> List[str]:
     blob = [x.replace('`', '') for x in blob]
     blob = [x.replace('(', '') for x in blob]
     blob = [x.replace(')', '') for x in blob]
+    blob = [x.replace("'", '') for x in blob]
     blob = [x.replace(';', '') for x in blob]
     return blob
 

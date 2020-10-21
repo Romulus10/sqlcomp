@@ -11,5 +11,5 @@ setup(
     license='GPL v3',
     author='Romulus10',
     author_email='romulus108@protonmail.com',
-    description=''
+    description='A library for edge cases where shortening SQL is helpful.'
 )

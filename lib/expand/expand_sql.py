@@ -40,10 +40,10 @@ def __generate_insert(sql_list: List[str]) -> str:
             result += "`{0}`,".format(x)
     result += ") VALUES ("
     if len(sql_list_two) == 1:
-        result += "`{0}`".format(sql_list_two[0])
+        result += "'{0}'".format(sql_list_two[0])
     else:
         for x in sql_list_two:
-            result += "`{0}`,".format(x)
+            result += "'{0}',".format(x)
     return result + ");"
 
 
@@ -53,7 +53,7 @@ def __generate_update(sql_list: List[str]) -> str:
     result = "UPDATE `{0}` SET ".format(sql_list.pop(0))
     x = 0
     while x < len(sql_list):
-        result += "`{0}` = `{1}`".format(sql_list[x], sql_list[x+1])
+        result += "`{0}` = '{1}'".format(sql_list[x], sql_list[x+1])
         x += 2
     result += "WHERE ({1}{2}{3});".format(sql_list[0], sql_list[1], sql_list[2], sql_list[3])
     return result
